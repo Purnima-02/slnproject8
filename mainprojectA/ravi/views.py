@@ -497,7 +497,7 @@ def update_document_detail_view(request, instance_id):
         form = DocumentUploadForm(request.POST, request.FILES, instance=document_upload)
         if form.is_valid():
             form.save()
-            return redirect('success')
+            return redirect('success',application_id=application_id)
     else:
         form = DocumentUploadForm(instance=document_upload)
 
@@ -535,7 +535,7 @@ def update_applicant_document_view(request, instance_id):
         form = ApplicantDocumentForm(request.POST, request.FILES, instance=applicant_document)
         if form.is_valid():
             form.save()
-            return redirect('success')
+            return redirect('success',application_id=application_id)
     else:
         form = ApplicantDocumentForm(instance=applicant_document)
 
