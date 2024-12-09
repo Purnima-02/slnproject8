@@ -978,7 +978,9 @@ def allLOans(request):
       #  print("Rejected..")
       #  print(request.session.get('rejectedLoansLength'))
       #  print(rejectedLoansAmount)
-
+     AlltotalLoansAmount = AlltotalLoansAmount or 0
+     approvalLoansAmount = approvalLoansAmount or 0
+     rejectedLoansAmount = rejectedLoansAmount or 0
      if allLoansVariableCopy:
        pendingLoans=allLoansVariableCopy-(approvalLoansLength+rejectedLoansLength)
        pendingLoansAmount=AlltotalLoansAmount-(approvalLoansAmount+rejectedLoansAmount)
@@ -988,7 +990,7 @@ def allLOans(request):
 
      loansAmountTitle=['ApprovedAmount','RejectedAmount','PendingAmount','DisbursedAmount']
      loansAmounts=[approvalLoansAmount,rejectedLoansAmount,pendingLoansAmount,disbursedTotalAmunt]
-
+     
      if request.headers.get('x-requested-with') == 'XMLHttpRequest':
    
         return render(request, 'DataTable.html', {'objects': objects, 'start_index': start_index})
