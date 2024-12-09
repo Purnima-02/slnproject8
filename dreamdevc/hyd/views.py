@@ -61,7 +61,7 @@ def update_ticket_status(request, ticket_id):
         status = request.POST.get('status')
         ticket.status = status
         ticket.save()
-        return redirect('new_dashboard')
+        return redirect('dashboard')
     return render(request, 'update_ticket_status.html', {'ticket': ticket})
 
 
@@ -204,7 +204,7 @@ def DSA_update_ticket_status(request, ticket_id):
         status = request.POST.get('status')
         DSA_ticket.status = status
         DSA_ticket.save()
-        return redirect('new_dashboard')
+        return redirect('dashboard')
     return render(request, 'DSA/DSA_update_ticket.html', {'DSA_ticket': DSA_ticket})
 
 
@@ -280,7 +280,7 @@ def Franchisee_update_ticket_status(request, ticket_id):
         status = request.POST.get('status')
         frachisee_ticket.status = status
         frachisee_ticket.save()
-        return redirect('new_dashboard')
+        return redirect('dashboard')
     return render(request, 'franchisee/fan_updateticket.html', {'frachisee_ticket': frachisee_ticket})
 
 
